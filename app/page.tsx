@@ -1,61 +1,49 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import * as pdfjs from "pdfjs-dist/legacy/build/pdf";
-
-
-pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.mjs";
+import Image from "next/image";
 
 export default function Home() {
-    const [images, setImages] = useState<string[]>([]);
-    const pdfURL = "/menu/E-menu.pdf";
-
-    useEffect(() => {
-        const loadPDF = async () => {
-            try {
-                const loadingTask = pdfjs.getDocument(pdfURL);
-                const pdf = await loadingTask.promise;
-
-                let extractedImages: string[] = [];
-
-                for (let i = 1; i <= pdf.numPages; i++) {
-                    const page = await pdf.getPage(i);
-                    const viewport = page.getViewport({ scale: 2 });
-                    const canvas = document.createElement("canvas");
-                    const context = canvas.getContext("2d");
-
-                    if (!context) continue;
-                    canvas.width = viewport.width;
-                    canvas.height = viewport.height;
-
-                    const renderTask = page.render({ canvasContext: context, viewport });
-                    await renderTask.promise;
-
-                    extractedImages.push(canvas.toDataURL("image/png"));
-                }
-
-                setImages(extractedImages);
-            } catch (error) {
-                console.error("Failed to load PDF:", error);
-            }
-        };
-
-        loadPDF();
-    }, []);
+    const imagePaths = [
+        "/E-menu-images/1.png",
+        "/E-menu-images/2.png",
+        "/E-menu-images/3.png",
+        "/E-menu-images/4.png",
+        "/E-menu-images/5.png",
+        "/E-menu-images/6.png",
+        "/E-menu-images/7.png",
+        "/E-menu-images/8.png",
+        "/E-menu-images/9.png",
+        "/E-menu-images/10.png",
+        "/E-menu-images/11.png",
+        "/E-menu-images/12.png",
+        "/E-menu-images/13.png",
+        "/E-menu-images/14.png",
+        "/E-menu-images/15.png",
+        "/E-menu-images/16.png",
+        "/E-menu-images/17.png",
+        "/E-menu-images/18.png",
+        "/E-menu-images/19.png",
+        "/E-menu-images/20.png",
+        "/E-menu-images/21.png",
+        "/E-menu-images/22.png",
+        "/E-menu-images/23.png",
+        "/E-menu-images/24.png",
+       
+    ];
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-            <h1 className="text-2xl font-bold mb-4">Scrollable PDF Viewer</h1>
-
-            {/* Scrollable Image Container */}
             <div className="w-full max-w-4xl h-screen overflow-y-auto border-2 shadow-lg bg-white">
-                {images.length > 0 ? (
-                    images.map((img, index) => (
-                        <img key={index} src={img} alt={`Page ${index + 1}`} className="w-full mb-2" />
-                    ))
-                ) : (
-                    <p>Loading PDF...</p>
-                )}
+                {imagePaths.map((src, index) => (
+                    <Image 
+                        key={index} 
+                        src={src} 
+                        alt={`Page ${index + 1}`} 
+                        width={800} 
+                        height={1000} 
+                        className="w-full mb-2"
+                    />
+                ))}
             </div>
         </div>
     );
