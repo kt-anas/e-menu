@@ -12,20 +12,22 @@ const Page = () => {
     }, []);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-            <div className="w-full max-w-4xl h-screen overflow-y-auto border-2 shadow-lg bg-white">
+        <div className="flex  items-center justify-center  bg-gray-100 p-4">
+            <div className="w-full max-w-4xl overflow-y-auto border-2 shadow-lg bg-black">
                 {imagePaths.map((src, index) => (
-                    <div key={index} className="relative w-full h-[600px] mb-2">
+                    <div key={index} className="flex justify-center w-full mb-2">
                         <Image
                             src={src}
                             alt={`Page ${index + 1}`}
-
-                            fill
+                            layout="intrinsic"
+                            width={500}   
+                            height={300} 
                             className="object-contain"
                         />
                     </div>
                 ))}
             </div>
+
         </div>
     );
 };
