@@ -1,53 +1,35 @@
-// sama-alkhaleej
-
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const Page = () => {
-  const imagePaths = [
-    '/E-menu-images/1.png',
-    '/E-menu-images/2.png',
-    '/E-menu-images/3.png',
-    '/E-menu-images/4.png',
-    '/E-menu-images/5.png',
-    '/E-menu-images/6.png',
-    '/E-menu-images/7.png',
-    '/E-menu-images/8.png',
-    '/E-menu-images/9.png',
-    '/E-menu-images/10.png',
-    '/E-menu-images/11.png',
-    '/E-menu-images/12.png',
-    '/E-menu-images/13.png',
-    '/E-menu-images/14.png',
-    '/E-menu-images/15.png',
-    '/E-menu-images/16.png',
-    '/E-menu-images/17.png',
-    '/E-menu-images/18.png',
-    '/E-menu-images/19.png',
-    '/E-menu-images/20.png',
-    '/E-menu-images/21.png',
-    '/E-menu-images/22.png',
-    '/E-menu-images/23.png',
-    '/E-menu-images/24.png',
-  ];
+    const [imagePaths, setImagePaths] = useState([]);
 
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-      <div className="w-full max-w-4xl h-screen overflow-y-auto border-2 shadow-lg bg-white">
-        {imagePaths.map((src, index) => (
-          <Image 
-            key={index} 
-            src={src} 
-            alt={`Page ${index + 1}`} 
-            width={800} 
-            height={1000} 
-            className="w-full mb-2"
-          />
-        ))}
-      </div>
-    </div>
-  );
+    useEffect(() => {
+        fetch('/api/get-store-images?store=sama-alkhaleej')
+            .then((res) => res.json())
+            .then((data) => setImagePaths(data));
+    }, []);
+
+    return (
+        <div className="flex  items-center justify-center  bg-gray-100 p-4">
+            <div className="w-full max-w-4xl overflow-y-auto border-2 shadow-lg bg-black">
+                {imagePaths.map((src, index) => (
+                    <div key={index} className="flex justify-center w-full mb-2">
+                        <Image
+                            src={src}
+                            alt={`Page ${index + 1}`}
+                            layout="intrinsic"
+                            width={500}   
+                            height={300} 
+                            className="object-contain"
+                        />
+                    </div>
+                ))}
+            </div>
+
+        </div>
+    );
 };
 
 export default Page;
