@@ -31,7 +31,14 @@ const Page = () => {
     return (
         <main className="min-h-screen bg-gray-100 py-10 px-4 md:px-6">
 
-        
+            {loading && (
+                <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
+                    <div className="text-center">
+                        <div className="w-16 h-16 border-4 border-gray-300 border-t-amber-500 rounded-full animate-spin"></div>
+                        <p className="mt-4 text-lg text-gray-700">Loading...</p>
+                    </div>
+                </div>
+            )}
 
             <section className="max-w-6xl mx-auto mb-10">
                 <div className="flex flex-col md:flex-row items-center gap-8">
