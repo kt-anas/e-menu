@@ -1,54 +1,50 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 
 const Page = () => {
-    const [imagePaths, setImagePaths] = useState<string[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const imagePaths: string[] = [
+        "/images/E-menu-images/1.png",
+        "/images/E-menu-images/2.png",
+        "/images/E-menu-images/3.png",
+        "/images/E-menu-images/4.png",
+        "/images/E-menu-images/5.png",
+        "/images/E-menu-images/6.png",
+        "/images/E-menu-images/7.png",
+        "/images/E-menu-images/8.png",
+        "/images/E-menu-images/9.png",
+        "/images/E-menu-images/10.png",
+        "/images/E-menu-images/11.png",
+        "/images/E-menu-images/12.png",
+        "/images/E-menu-images/13.png",
+        "/images/E-menu-images/14.png",
+        "/images/E-menu-images/15.png",
+        "/images/E-menu-images/16.png",
+        "/images/E-menu-images/17.png",
+        "/images/E-menu-images/18.png",
+        "/images/E-menu-images/19.png",
+        "/images/E-menu-images/20.png",
+        "/images/E-menu-images/21.png",
+        "/images/E-menu-images/22.png",
+        "/images/E-menu-images/23.png",
+        "/images/E-menu-images/24.png",
 
-    useEffect(() => {
-        setLoading(true);
-        fetch("/api/get-store-images?store=sama-alkhaleej")
-            .then(async (res) => {
-                if (!res.ok) {
-                    const text = await res.text();
-                    throw new Error(`Fetch error: ${res.status} ${text}`);
-                }
-                return res.json();
-            })
-            .then((data) => {
-                setImagePaths(data);
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.error("Error loading images:", error);
-                setLoading(false);
-            });
-    }, []);
+    ];
+
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
     const mainSectionImages =
         imagePaths.length >= 2
             ? [imagePaths[0], imagePaths[1]]
-            : ["/placeholder.svg", "/placeholder.svg"];
+            : [imagePaths[0], imagePaths[0]]; // show same image twice if only one available
 
     const additionalImages = imagePaths.length > 2 ? imagePaths.slice(2) : [];
 
     return (
         <main className="min-h-screen bg-gray-100 py-10 px-4 md:px-6">
-
-            {loading && (
-                <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
-                    <div className="text-center">
-                        <div className="w-16 h-16 border-4 border-gray-300 border-t-amber-500 rounded-full animate-spin"></div>
-                        <p className="mt-4 text-lg text-gray-700">Loading...</p>
-                    </div>
-                </div>
-            )}
-
+            {/* Main Section */}
             <section className="max-w-6xl mx-auto mb-10">
                 <div className="flex flex-col md:flex-row items-center gap-8">
-
                     <div className="w-full md:w-1/2 rounded-lg overflow-hidden h-64 md:h-80">
                         <div className="relative w-full h-full">
                             <Image
@@ -62,11 +58,24 @@ const Page = () => {
                             />
                         </div>
                     </div>
+
+                    <div className="w-full md:w-1/2 rounded-lg overflow-hidden h-64 md:h-80">
+                        <div className="relative w-full h-full">
+                            <Image
+                                src={mainSectionImages[1]}
+                                alt="Second section image"
+                                fill
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                className="object-contain cursor-pointer"
+                                priority
+                                onClick={() => setSelectedImage(mainSectionImages[1])}
+                            />
+                        </div>
+                    </div>
                 </div>
             </section>
 
-
-
+            {/* Additional Images */}
             {additionalImages.length > 0 && (
                 <section className="max-w-6xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -90,6 +99,8 @@ const Page = () => {
                     </div>
                 </section>
             )}
+
+            {/* Image Modal */}
             {selectedImage && (
                 <div
                     className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
@@ -99,7 +110,6 @@ const Page = () => {
                         className="relative max-w-4xl w-full p-4"
                         onClick={(e) => e.stopPropagation()}
                     >
-
                         <div className="relative w-full h-[80vh]">
                             <Image
                                 src={selectedImage}
