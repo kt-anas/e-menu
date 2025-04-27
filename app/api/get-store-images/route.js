@@ -13,7 +13,7 @@ export async function GET(req) {
             return NextResponse.json({ error: 'Missing Blob token' }, { status: 500 });
         }
         const { blobs } = await list({ prefix: `${storeName}/`, token });
-        // console.log('Fetched Blobs:', blobs); 
+        
         const imageUrls = blobs
             .filter((blob) => blob.size > 0)
             .map((blob) => blob.url);

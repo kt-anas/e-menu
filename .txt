@@ -1,0 +1,38 @@
+🌐 Website Concept
+A platform where hotel or restaurant owners can:
+
+Upload their digital menu (PDF or image).
+
+Generate a public page with a unique link to view the menu.
+
+Optionally customize the menu page with hotel name, logo, and theme.
+
+
+
+🔧 Features
+1. User Dashboard
+User signup/login (with email/password or social login).
+
+Upload e-menu (PDF, images, or both).
+
+Add metadata: hotel name, address, contact info, logo.
+
+View previously uploaded menus.
+
+Generate a unique public link (like yourdomain.com/menu/abc123).
+
+2. Public Menu Page
+Display hotel name and logo.
+
+Show uploaded menu (embedded PDF viewer or image viewer).
+
+Mobile-optimized view.
+
+Share button (copy link, QR code generation, etc.).
+
+3. Admin Panel (optional)
+Manage users and uploads.
+
+Review and delete offensive content.
+
+Analytics on number of visits per menu.
