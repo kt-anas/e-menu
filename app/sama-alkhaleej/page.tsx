@@ -42,14 +42,7 @@ const Page = () => {
 
             <section className="max-w-6xl mx-auto mb-10">
                 <div className="flex flex-col md:flex-row items-center gap-8">
-                    <div className="w-full md:w-1/2 text-center md:text-left">
-                        <h1 className="text-3xl md:text-5xl font-bold mb-4 text-black tracking-wide font-serif text-center">
-                            <span className="block">Welcome to</span>
-                            <span className="text-amber-600 block my-2">SAMA ALKHALEEJ</span>
-                            <span className="block">Restaurant</span>
-                            <div className="w-24 h-1 bg-amber-500 mx-auto mt-3"></div>
-                        </h1>
-                    </div>
+
                     <div className="w-full md:w-1/2 rounded-lg overflow-hidden h-64 md:h-80">
                         <div className="relative w-full h-full">
                             <Image
@@ -66,7 +59,6 @@ const Page = () => {
                 </div>
             </section>
 
-            <div className="max-w-6xl mx-auto h-1 bg-black mb-10"></div>
 
             {additionalImages.length > 0 && (
                 <section className="max-w-6xl mx-auto">
@@ -100,16 +92,7 @@ const Page = () => {
                         className="relative max-w-4xl w-full p-4"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <button
-                            onClick={() => setSelectedImage(null)}
-                            className="absolute top-4 right-4 bg-gray-200 text-black p-2 rounded-full hover:bg-gray-300 flex items-center justify-center w-8 h-8 "
-                            aria-label="Close"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                        </button>
+
                         <div className="relative w-full h-[80vh]">
                             <Image
                                 src={selectedImage}
