@@ -8,7 +8,6 @@ const Page = () => {
 
     const mainSectionImages = ['/images/Al-Tasheed/IMG_1.jpg']
     const additionalImages = [
-        '/images/Al-Tasheed/IMG_1.jpg',
         '/images/Al-Tasheed/IMG_2.jpg',
         '/images/Al-Tasheed/IMG_3.jpg',
         '/images/Al-Tasheed/IMG_4.jpg',
@@ -33,32 +32,16 @@ const Page = () => {
             {loading && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black z-50">
                     <div className="text-center">
-                        <div className="w-16 h-16 border-4 border-gray-600 border-t-amber-500 rounded-full animate-spin"></div>
+                        <div className="w-16 h-16 border-4 border-gray-600 border-t-white rounded-full animate-spin"></div>
                         <p className="mt-4 text-lg text-white">Loading...</p>
                     </div>
                 </div>
             )}
 
-            {/* Main Content */}
+
             {!loading && (
                 <>
-                    {/* Main Section */}
-                    <section className="max-w-6xl mx-auto mb-10">
-                        <div className="flex flex-col items-center gap-8">
-                            <div className="w-full rounded-lg overflow-x-auto">
-                                <Image
-                                    src={mainSectionImages[0]}
-                                    alt="First section image"
-                                    width={0}
-                                    height={0}
-                                    sizes="100vw"
-                                    style={{ width: '100%', height: 'auto' }}
-                                    className="cursor-pointer"
-                                    priority
-                                />
-                            </div>
-                        </div>
-                    </section>
+
 
                     {additionalImages.length > 0 && (
                         <section className="max-w-6xl mx-auto">
@@ -84,6 +67,22 @@ const Page = () => {
                             </div>
                         </section>
                     )}
+                    <section className="max-w-6xl mx-auto mb-10">
+                        <div className="flex flex-col items-center gap-8">
+                            <div className="w-full rounded-lg overflow-x-auto">
+                                <Image
+                                    src={mainSectionImages[0]}
+                                    alt="First section image"
+                                    width={0}
+                                    height={0}
+                                    sizes="100vw"
+                                    style={{ width: '100%', height: 'auto' }}
+                                    className="cursor-pointer"
+                                    priority
+                                />
+                            </div>
+                        </div>
+                    </section>
                 </>
             )}
 
