@@ -1,22 +1,5 @@
 
-// import React from 'react'
-
-// function Footer() {
-//     return (
-//         <div>
-//             <footer className="bg-gray-800 text-white py-4">
-//                 <div className="container mx-auhref text-center">
-//                     <p>&copy; {new Date().getFullYear()} emenulab.All rights reserved.</p>
-//                 </div>
-//             </footer>
-//         </div>
-
-//     )
-// }
-
-// export default Footer
-
-import Link from 'next/link';
+// import Link from 'next/link';
 import React from 'react';
 
 
@@ -25,16 +8,16 @@ const Footer = () => {
         <footer className="bg-gray-50 py-12">
             <div className="container mx-auhref px-4">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    <div>
+                    {/* <div>
                         <div className="font-bold text-2xl text-menu-primary mb-4">
                             emenulab
                         </div>
                         <p className="text-gray-600 mb-4">
                             The simplest way href create beautiful digital menus for your restaurant.
                         </p>
-                    </div>
+                    </div> */}
 
-                    <div>
+                    {/* <div>
                         <h3 className="font-semibold text-lg mb-4">Product</h3>
                         <ul className="space-y-2">
                             <li><Link href="/features" className="text-gray-600 hover:text-menu-primary">Features</Link></li>
@@ -42,19 +25,19 @@ const Footer = () => {
                             <li><Link href="/pricing" className="text-gray-600 hover:text-menu-primary">Pricing</Link></li>
                             <li><Link href="/updates" className="text-gray-600 hover:text-menu-primary">Updates</Link></li>
                         </ul>
-                    </div>
+                    </div> */}
 
-                    <div>
-                        <h3 className="font-semibold text-lg mb-4">Resources</h3>
+                    {/* <div>
+                        <h3 className="font-semibold text-lg mb-4">Contact Us</h3>
                         <ul className="space-y-2">
                             <li><Link href="/blog" className="text-gray-600 hover:text-menu-primary">Blog</Link></li>
                             <li><Link href="/guides" className="text-gray-600 hover:text-menu-primary">Guides</Link></li>
                             <li><Link href="/support" className="text-gray-600 hover:text-menu-primary">Support</Link></li>
                             <li><Link href="/api" className="text-gray-600 hover:text-menu-primary">API</Link></li>
                         </ul>
-                    </div>
+                    </div> */}
 
-                    <div>
+                    {/* <div>
                         <h3 className="font-semibold text-lg mb-4">Company</h3>
                         <ul className="space-y-2">
                             <li><Link href="/about" className="text-gray-600 hover:text-menu-primary">About</Link></li>
@@ -62,7 +45,48 @@ const Footer = () => {
                             <li><Link href="/contact" className="text-gray-600 hover:text-menu-primary">Contact</Link></li>
                             <li><Link href="/privacy" className="text-gray-600 hover:text-menu-primary">Privacy</Link></li>
                         </ul>
+                    </div> */}
+
+                    <div className="mt-6 space-y-4 text-gray-600">
+                        {/* Mobile */}
+                        <div className="flex items-center space-x-2">
+                            <span className="text-xl text-gray-700">📞</span>
+                            <p className="text-sm">
+                                <strong>Mob:</strong>
+                                <a
+                                    href="tel:+966570100788"
+                                    className="hover:text-menu-primary focus:outline-none focus:ring-2 focus:ring-menu-primary"
+                                    aria-label="Call Mob: 0570100788"
+                                >
+                                    0570100788
+                                </a>
+                            </p>
+                        </div>
+
+                        {/* Location */}
+                        <div className="flex items-center space-x-2">
+                            <span className="text-xl text-gray-700">📍</span>
+                            <p className="text-sm">
+                                <strong>Location:</strong> Jeddah, Asfan Dist.
+                            </p>
+                        </div>
+
+                        {/* Email */}
+                        <div className="flex items-center space-x-2">
+                            <span className="text-xl text-gray-700">✉️</span>
+                            <p className="text-sm">
+                                <strong>Email:</strong>
+                                <a
+                                    href="mailto:khursheedakhtar093@gmail.com"
+                                    className="hover:text-menu-primary focus:outline-none focus:ring-2 focus:ring-menu-primary"
+                                    aria-label="Send an email to khursheedakhtar093@gmail.com"
+                                >
+                                    khursheedakhtar093@gmail.com
+                                </a>
+                            </p>
+                        </div>
                     </div>
+
                 </div>
 
                 <div className="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
