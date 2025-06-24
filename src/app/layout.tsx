@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "eMenuLab - Create Beautiful Digital Menus",
+    title: "emenulab - Create Beautiful Digital Menus",
     description: "A sleek and interactive digital menu app for restaurants, cafes, and food services.",
 };
 
